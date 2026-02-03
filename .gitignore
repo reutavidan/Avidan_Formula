@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Data files (too large for git)
+*.csv
+*.zip
+
+# macOS
+.DS_Store
+*.swp
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Environment
+.env
+.venv/
+env/
+venv/
+
+# Other directories not needed for deployment
+IOL_PEDS_ML/
+iolpeds-project/
+outputs/
+results/
+models/
+data/
+107/
+108/
+109/
+110/
+
+# But keep the model files needed for the app
+!pediatric_iol/
+!pediatric_iol/outputs/
+!pediatric_iol/outputs/models/
+!pediatric_iol/outputs/models/xgboost_pediatric_iol/
+!pediatric_iol/outputs/models/xgboost_pediatric_iol/*
+
+# Documentation not needed for app
+*.md
+!README.md
+
+# Old model files
+*.keras
+*.pkl
+scaler_*.pkl
+
+# Word docs
+*.docx
