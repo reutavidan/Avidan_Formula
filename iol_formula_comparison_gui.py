@@ -144,7 +144,12 @@ def load_model():
     if not MODEL_AVAILABLE:
         return None
 
+    # Get the directory where this script is located
+    script_dir = Path(__file__).parent.resolve()
+
     model_paths = [
+        script_dir / 'pediatric_iol/outputs/models/xgboost_pediatric_iol',
+        script_dir / 'models/xgboost_pediatric_iol',
         Path('pediatric_iol/outputs/models/xgboost_pediatric_iol'),
         Path('models/xgboost_pediatric_iol'),
     ]
