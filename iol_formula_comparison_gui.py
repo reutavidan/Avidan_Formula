@@ -18,8 +18,10 @@ import json
 try:
     from xgboost_iol_model import PediatricIOLXGBoost, Config
     MODEL_AVAILABLE = True
-except ImportError:
+    IMPORT_ERROR = None
+except Exception as e:
     MODEL_AVAILABLE = False
+    IMPORT_ERROR = str(e)
 
 # ============================================================
 # STAGE 1: AVIDAN TARGET REFRACTION
@@ -245,7 +247,10 @@ st.markdown('<p class="sub-header">AI-Powered Pediatric IOL Calculator</p>', uns
 model = load_model()
 
 if not model:
-    st.error("Model not loaded. Please ensure the XGBoost model files are in place.")
+    if not MODEL_AVAILABLE:
+        st.error(f"Import error: {IMPORT_ERROR}")
+    else:
+        st.error("Model files not found in expected location.")
     st.stop()
 
 # ============================================================
